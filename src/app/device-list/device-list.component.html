@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Connected Devices</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>VendorName</th>
+            <th>Create Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let device of peripherals">
+            <td>{{device.id}}</td>
+            <td>{{device.vendorName}}</td>
+            <td>{{device.createDate}}</td>
+            <td><div *ngIf="device.status;then content else other_content"></div>    
+              <ng-template #content>Active</ng-template>
+              <ng-template #other_content>Inactive</ng-template>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a routerLink="" class="btn" style="background-color: black; color: blanchedalmond;" routerLinkActive="active">Back</a>
+  </div>
+  
