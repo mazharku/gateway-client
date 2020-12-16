@@ -19,4 +19,13 @@ export class DataTableComponent implements OnInit {
   public viewConnectedDevices(gatewayId: String) {
     this.router.navigate(['devices', gatewayId]);
   }
+  public deleteGateway(gatewayId: String) {
+    let resp= this.service.deleteGateway(gatewayId);
+    resp.subscribe(data => {
+      console.log(data)
+      this.ngOnInit();
+    }, 
+    error => console.log(error));
+    
+  }
 }
